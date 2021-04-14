@@ -100,7 +100,7 @@
 
 
             <c:if test="${id_user_role == '1'}">
-                <form class="btn_form" action="Controller" method="post">
+                <form class="btn_form">
                     <table class="table table-hover">
                         <thead>
                         <tr>
@@ -113,6 +113,7 @@
                         </thead>
                         <tbody>
                         <c:forEach var="n" items="${cards}">
+                        <form action="Controller" method="post">
                             <tr>
                                 <td><c:out value="${n.id_account}"/></td>
                                 <td><c:out value="${n.number}"/></td>
@@ -126,6 +127,7 @@
                                     <input type="submit" name="submit" value="SAVE"/>
                                 </td>
                             </tr>
+                        </form>
                         </c:forEach>
                         </tbody>
                     </table>

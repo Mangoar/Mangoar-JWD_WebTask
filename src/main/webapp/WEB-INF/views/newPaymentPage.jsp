@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: User
@@ -47,7 +48,11 @@
 
                             <input type="hidden" name="command" value="addnewpayment" />
                             <fieldset>
-                                <p style="color: red;">${errorString}</p>
+                                <c:if test="${no_funds == 'NO_FUNDS'}">
+                                <p>
+                                    <span style="color: red; ">No funds to process this payment!</span>
+                                <p>
+                                    </c:if>
                                 <!-- Form Name -->
                                 <legend>Enter payments data:</legend>
 
@@ -58,14 +63,14 @@
                                         <input type="hidden" name="id_payment_type" value="2"/>
                                         <input type="hidden" name="id_account" value="${id_account}"/>
                                         <input type="hidden" name="id_card" value="${id_card}"/>
-                                        <input id="outcomecard" name="OutcomeCard" type="text" value="${number_card}" class="form-control input-md" disabled>
+                                        <input id="outcomecard" name="OutcomeCard" type="text" value="${number_card}" class="form-control input-md" readonly="readonly">
                                         <span class="help-block">Number of your card</span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label" for="currentbalance">Current balance</label>
                                     <div >
-                                        <input id="currentbalance" name="CurrentBalance" type="text" value="${balance_card}" class="form-control input-md" disabled>
+                                        <input id="currentbalance" name="CurrentBalance" type="text" value="${balance_card}" class="form-control input-md" readonly="readonly">
                                         <span class="help-block">Current balance of your card</span>
                                     </div>
                                 </div>
@@ -112,7 +117,7 @@
                                         <input type="hidden" name="id_card" value="${id_card}"/>
                                         <input type="hidden" name="CurrentBalance" value="${balance_card}"/>
                                         <input type="hidden" name="Destination" value="income"/>
-                                        <input id="incomecard" name="IncomeCard" type="text" value="${number_card}" class="form-control input-md" disabled>
+                                        <input id="incomecard" name="IncomeCard" type="text" value="${number_card}" class="form-control input-md" readonly="readonly">
                                         <span class="help-block">Number of your card</span>
                                     </div>
                                 </div>

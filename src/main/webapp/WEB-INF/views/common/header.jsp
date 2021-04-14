@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: User
@@ -14,6 +15,14 @@
         <a href="Controller?command=gotomainpage">Home</a>
         <a href="Controller?command=gotocontactspage">Contact</a>
         <a href="Controller?command=gotoaboutpage">About</a>
+        <c:if test="${id_user_role == null}">
         <a href="Controller?command=gotologinpage">Log In / Registration</a>
+        </c:if>
+        <c:if test="${id_user_role == '1'}">
+            <a href="Controller?command=logout">Log Out</a>
+        </c:if>
+        <c:if test="${id_user_role == '2'}">
+            <a href="Controller?command=logout">Log Out</a>
+        </c:if>
     </div>
 </div>

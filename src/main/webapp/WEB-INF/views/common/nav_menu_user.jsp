@@ -25,7 +25,6 @@
 
             <li class="nav-item active">
                 <span>Hello, ${pageContext.findAttribute("login")}</span>
-                <a href="Controller?command=logout">Log Out</a>
             </li>
         </ul>
         <span class="navbar-text">
