@@ -81,9 +81,9 @@ public class RegisterNewUser implements Command {
             }
         } catch (
                 ServiceException e) {
-            logger.info("REGISTER NEW USER - SERVICE EXCEPTION");
+            logger.info("REGISTER NEW USER - SERVICE EXCEPTION",e);
         } catch (ServletException e) {
-            logger.info("REGISTER NEW USER - SERVLET EXCEPTION");
+            logger.info("REGISTER NEW USER - SERVLET EXCEPTION",e);
         }
     }
 }

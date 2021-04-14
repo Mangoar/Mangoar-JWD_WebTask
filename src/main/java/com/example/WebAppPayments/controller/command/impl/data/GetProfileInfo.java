@@ -33,7 +33,7 @@ public class GetProfileInfo implements Command {
         try {
             user = userService.getUserById(curr_user_id);
         } catch (ServiceException e) {
-            logger.info("GET PROFILE INFO - SERVICE EXCEPTION");
+            logger.info("GET PROFILE INFO - SERVICE EXCEPTION",e);
         }
 
 

@@ -16,10 +16,10 @@ public class GoToNewPaymentPage implements Command {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        request.setAttribute("id_account",session.getAttribute(Attribute.ID_ACCOUNT));
-        request.setAttribute("id_card",request.getParameter("idcard"));
-        request.setAttribute("number_card",request.getParameter("numbercard"));
-        request.setAttribute("balance_card",request.getParameter("balancecard"));
+        session.setAttribute("id_account",session.getAttribute(Attribute.ID_ACCOUNT));
+        session.setAttribute("id_card",request.getParameter("idcard"));
+        session.setAttribute("number_card",request.getParameter("numbercard"));
+        session.setAttribute("balance_card",request.getParameter("balancecard"));
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/views/newPaymentPage.jsp");
         requestDispatcher.forward(request, response);
     }

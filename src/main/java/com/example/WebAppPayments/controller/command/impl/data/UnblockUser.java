@@ -27,7 +27,7 @@ public class UnblockUser implements Command {
         try {
             userService.unblockUser(idUser);
         } catch (ServiceException e) {
-            logger.info("UNBLOCK USER - SERVICE EXCEPTION");
+            logger.info("UNBLOCK USER - SERVICE EXCEPTION",e);
         }
             response.sendRedirect(CommandUrlPath.GET_USERS_COMMAND);
     }

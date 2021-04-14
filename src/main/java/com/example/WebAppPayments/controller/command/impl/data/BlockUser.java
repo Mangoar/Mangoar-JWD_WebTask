@@ -27,7 +27,7 @@ public class BlockUser implements Command {
         try {
             userService.blockUser(idUser);
         } catch (ServiceException e) {
-            logger.info("BLOCK USER - SERVICE EXCEPTION");
+            logger.info("BLOCK USER - SERVICE EXCEPTION",e);
         }
         response.sendRedirect(CommandUrlPath.GET_USERS_COMMAND);
 

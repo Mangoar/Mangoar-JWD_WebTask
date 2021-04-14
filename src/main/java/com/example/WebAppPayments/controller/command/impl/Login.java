@@ -50,9 +50,9 @@ public class Login implements Command {
             }
 
         } catch (ServletException e) {
-            logger.info("LOGIN - SERVLET EXCEPTION");
+            logger.info("LOGIN - SERVLET EXCEPTION",e);
         } catch (ServiceException e) {
-            logger.info("LOGIN - SERVICE EXCEPTION");
+            logger.info("LOGIN - SERVICE EXCEPTION",e);
         }
     }
 }

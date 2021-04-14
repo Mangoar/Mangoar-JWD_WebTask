@@ -37,9 +37,9 @@ public class GetUsers implements Command {
             requestDispatcher = request.getRequestDispatcher(CommandUrlPath.USERS_PAGE);
             requestDispatcher.forward(request, response);
         } catch (ServiceException e) {
-            logger.info("GET USERS - SERVICE EXCEPTION");
+            logger.info("GET USERS - SERVICE EXCEPTION",e);
         } catch (ServletException e) {
-            logger.info("GET USERS - SERVLET EXCEPTION");
+            logger.info("GET USERS - SERVLET EXCEPTION",e);
         }
 
 

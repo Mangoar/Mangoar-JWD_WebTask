@@ -65,9 +65,9 @@ public class GetCards implements Command {
             requestDispatcher = request.getRequestDispatcher(CommandUrlPath.CARDS_PAGE);
             requestDispatcher.forward(request, response);
         } catch (ServletException e) {
-            logger.info("GET CARDS - SERVLET EXCEPTION");
+            logger.info("GET CARDS - SERVLET EXCEPTION",e);
         } catch (ServiceException e) {
-            logger.info("GET CARDS - SERVICE EXCEPTION");
+            logger.info("GET CARDS - SERVICE EXCEPTION",e);
         }
 
 

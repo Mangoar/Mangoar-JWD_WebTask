@@ -18,6 +18,6 @@ public enum Message {
     NO_SUCH_USER,
 
     INCORRECT_PAYMENT,
-    NO_FUNDS;
+    NO_FUNDS
 
 }

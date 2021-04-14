@@ -36,7 +36,7 @@ public class AddNewCard implements Command {
         try {
             cardsService.addNewCard(newCard);
         } catch (ServiceException e) {
-            logger.info("ADD NEW CARD - SERVICE EXCEPTION");
+            logger.info("ADD NEW CARD - SERVICE EXCEPTION",e);
         }
 
         response.sendRedirect(CommandUrlPath.GET_CARDS_COMMAND);

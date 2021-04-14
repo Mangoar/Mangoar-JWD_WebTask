@@ -40,7 +40,7 @@ public class DownloadServlet extends HttpServlet {
                 try {
                     paymentList = paymentDAO.getYearPaymentList(user_id);
                 } catch (DaoException e) {
-                    logger.info("DOWNLOAD_SERVLET - YEAR - DAO EXCEPTION");
+                    logger.info("DOWNLOAD_SERVLET - YEAR - DAO EXCEPTION",e);
                 }
                 ReportCreator.createDocument(paymentList,user_id,1);
 
@@ -51,7 +51,7 @@ public class DownloadServlet extends HttpServlet {
                 try {
                     paymentList = paymentDAO.getMonthPaymentList(user_id);
                 } catch (DaoException e) {
-                    logger.info("DOWNLOAD_SERVLET - MONTH - DAO EXCEPTION");
+                    logger.info("DOWNLOAD_SERVLET - MONTH - DAO EXCEPTION",e);
                 }
                 ReportCreator.createDocument(paymentList,user_id,2);
                 break;
@@ -61,7 +61,7 @@ public class DownloadServlet extends HttpServlet {
                 try {
                     paymentList = paymentDAO.getWeekPaymentList(user_id);
                 } catch (DaoException e) {
-                    logger.info("DOWNLOAD_SERVLET - WEEK - DAO EXCEPTION");
+                    logger.info("DOWNLOAD_SERVLET - WEEK - DAO EXCEPTION",e);
                 }
                 ReportCreator.createDocument(paymentList,user_id,3);
                 break;
@@ -71,7 +71,7 @@ public class DownloadServlet extends HttpServlet {
                 try {
                     paymentList = paymentDAO.getLastPaymentList(user_id);
                 } catch (DaoException e) {
-                    logger.info("DOWNLOAD_SERVLET - NOW - DAO EXCEPTION");
+                    logger.info("DOWNLOAD_SERVLET - NOW - DAO EXCEPTION",e);
                 }
                 ReportCreator.createDocument(paymentList,user_id,4);
                 break;

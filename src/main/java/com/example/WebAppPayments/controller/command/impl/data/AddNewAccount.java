@@ -41,7 +41,7 @@ public class AddNewAccount implements Command {
         try {
             accountService.addNewAccount(newAccount);
         } catch (ServiceException e) {
-            logger.info("ADD NEW ACCOUNT - SERVICE EXCEPTION");
+            logger.info("ADD NEW ACCOUNT - SERVICE EXCEPTION",e);
         }
 
         response.sendRedirect(CommandUrlPath.GET_ACCOUNTS_COMMAND);

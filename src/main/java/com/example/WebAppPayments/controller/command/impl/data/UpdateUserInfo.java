@@ -57,7 +57,7 @@ public class UpdateUserInfo implements Command {
                 response.sendRedirect(CommandUrlPath.GET_PROFILE_INFO_COMMAND);
             }
         } catch (ServiceException e) {
-            logger.info("UPDATE USER INFO - SERVICE EXCEPTION");
+            logger.info("UPDATE USER INFO - SERVICE EXCEPTION",e);
         }
 
 

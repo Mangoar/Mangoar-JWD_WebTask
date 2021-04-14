@@ -46,9 +46,9 @@ public class GetPayments implements Command {
             requestDispatcher = request.getRequestDispatcher(CommandUrlPath.PAYMENT_PAGE);
             requestDispatcher.forward(request, response);
         } catch (ServiceException e) {
-            logger.info("GET PAYMENTS - SERVICE EXCEPTION");
+            logger.info("GET PAYMENTS - SERVICE EXCEPTION",e);
         } catch (ServletException e) {
-            logger.info("GET PAYMENTS - SERVLET EXCEPTION");
+            logger.info("GET PAYMENTS - SERVLET EXCEPTION",e);
         }
 
 

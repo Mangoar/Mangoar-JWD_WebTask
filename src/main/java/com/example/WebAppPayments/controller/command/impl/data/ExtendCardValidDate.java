@@ -31,7 +31,7 @@ public class ExtendCardValidDate implements Command {
             cardsService.extendCardValidDate(newDate, idCard);
         }
         catch (ServiceException e) {
-            logger.info("EXTEND CARD VALID DATE - SERVICE EXCEPTION");
+            logger.info("EXTEND CARD VALID DATE - SERVICE EXCEPTION",e);
         }
 
         response.sendRedirect(CommandUrlPath.GET_CARDS_COMMAND);

@@ -34,7 +34,6 @@ public class GetAccounts implements Command {
 
         int curr_user_id = Integer.parseInt(session.getAttribute(Attribute.ID_USER).toString());
 
-        logger.info("ID User " + curr_user_id);
 
         List<Account> accountList = new ArrayList<>();
 
@@ -46,9 +45,9 @@ public class GetAccounts implements Command {
             requestDispatcher = request.getRequestDispatcher(CommandUrlPath.ACCOUNT_PAGE);
             requestDispatcher.forward(request, response);
         } catch (ServletException e) {
-            logger.info("GET ACCOUNTS - SERVLET EXCEPTION");
+            logger.info("GET ACCOUNTS - SERVLET EXCEPTION",e);
         } catch (ServiceException e) {
-            logger.info("GET ACCOUNTS - SERVICE EXCEPTION");
+            logger.info("GET ACCOUNTS - SERVICE EXCEPTION",e);
         }
 
     }

@@ -3,6 +3,7 @@ package com.example.WebAppPayments.controller.command.impl.data;
 import com.example.WebAppPayments.controller.command.Attribute;
 import com.example.WebAppPayments.controller.command.Command;
 import com.example.WebAppPayments.controller.command.CommandUrlPath;
+import com.example.WebAppPayments.controller.command.Message;
 import com.example.WebAppPayments.controller.command.impl.navigation.GoToLoginPage;
 import com.example.WebAppPayments.dao.Transaction;
 import com.example.WebAppPayments.entity.Payment;
@@ -35,35 +36,45 @@ public class AddNewPayment implements Command {
         String destination;
         int id_card;
         int payment_type;
+        try {
 
-        id_account = Integer.parseInt(request.getParameter("id_account"));
-        current_value = Double.parseDouble(request.getParameter("CurrentBalance"));
-        payment_value = Double.parseDouble(request.getParameter("PaymentValue"));
-        destination = request.getParameter("Destination");
-        id_card = Integer.parseInt(request.getParameter("id_card"));
-        payment_type = Integer.parseInt(request.getParameter("id_payment_type"));
-        double newValue;
-        if(payment_type == 2) {
-            newValue = current_value - payment_value;
-        }
-        else {
-            newValue = current_value + payment_value;
-        }
 
-        Payment payment = new Payment();
-        payment.setId_type(payment_type);
-        payment.setDestination(destination);
-        payment.setId_card(id_card);
-        payment.setSum(payment_value);
+            id_account = Integer.parseInt(request.getParameter("id_account"));
+            current_value = Double.parseDouble(request.getParameter("CurrentBalance"));
+            payment_value = Double.parseDouble(request.getParameter("PaymentValue"));
+            destination = request.getParameter("Destination");
+            id_card = Integer.parseInt(request.getParameter("id_card"));
+            payment_type = Integer.parseInt(request.getParameter("id_payment_type"));
+            double newValue = 0;
+            if (payment_type == 2) {
+                if (current_value < payment_value) {
+                    RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/views/newPaymentPage.jsp");
+                    request.setAttribute(Attribute.NO_FUNDS, Message.NO_FUNDS);
+                    requestDispatcher.forward(request, response);
+                } else {
+                    newValue = current_value - payment_value;
+                }
+            } else {
+                newValue = current_value + payment_value;
+            }
+
+            Payment payment = new Payment();
+            payment.setId_type(payment_type);
+            payment.setDestination(destination);
+            payment.setId_card(id_card);
+            payment.setSum(payment_value);
 
             try {
-                transaction.newPayment(id_account,newValue,payment);
+                transaction.newPayment(id_account, newValue, payment);
 
                 response.sendRedirect(CommandUrlPath.COMPLETED_PAYMENT_PAGE_COMMAND);
 
             } catch (TransactionException ex) {
-
+                logger.info("TRANSACTION EXCEPTION",ex);
             }
+        } catch (ServletException e) {
+            logger.info("ADD NEW PAYMENT SERVLET EXCEPTION",e);
+        }
 
     }
 }

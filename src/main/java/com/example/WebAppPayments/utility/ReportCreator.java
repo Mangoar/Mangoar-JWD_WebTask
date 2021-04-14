@@ -1,10 +1,12 @@
 package com.example.WebAppPayments.utility;
 
+import com.example.WebAppPayments.dao.impl.UserDAOImpl;
 import com.example.WebAppPayments.entity.Payment;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import org.apache.log4j.Logger;
 
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
@@ -18,6 +20,8 @@ public class ReportCreator {
             Font.BOLD);
     private static Font smallFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
             Font.BOLD);
+
+    private static final Logger logger = Logger.getLogger(ReportCreator.class);
 
     private ReportCreator(){}
 
@@ -61,7 +65,7 @@ public class ReportCreator {
             document.close();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.info("REPORT CREATOR EXCEPTION",e);
         }
     }
 

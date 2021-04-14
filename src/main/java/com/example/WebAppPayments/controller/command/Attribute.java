@@ -28,5 +28,7 @@ public class Attribute {
     public static final String MESSAGE_BIRTHDATE = "message_birthdate";
     public static final String MESSAGE_SEND = "message_send";
 
+    public static final String NO_FUNDS = "no_funds";
+
     public static final String MESSAGE_FAIL_LOG_IN = "message_fail_log_in";
 }

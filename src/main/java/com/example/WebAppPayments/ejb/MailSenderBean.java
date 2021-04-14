@@ -45,7 +45,7 @@ public class MailSenderBean {
 
         transport.close();
         } catch (Exception e) {
-            logger.info("MAILSENDERBEAN EXCEPTION!");
+            logger.info("MAILSENDERBEAN EXCEPTION!",e);
         }
 
 
